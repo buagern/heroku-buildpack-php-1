@@ -121,20 +121,19 @@ tar cjf "${BUILD_DIR}/${OUTPUT}.tar.bz2" *
 popd >/dev/null
 popd
 
-mv "${BUILD_DIR}/${OUTPUT_DEVEL}.tar.bz2" \
-  "${BUILD_DIR}/${OUTPUT_MANUAL}.tar.bz2" \
-  "${BUILD_DIR}/${OUTPUT}.tar.bz2" \
-  .
+##mv "${BUILD_DIR}/${OUTPUT_DEVEL}.tar.bz2" \
+##  "${BUILD_DIR}/${OUTPUT_MANUAL}.tar.bz2" \
+##  "${BUILD_DIR}/${OUTPUT}.tar.bz2" \
+##  /app/
 
 log_action main "Current dir: `pwd`"
 log_action main "Output files: `ls *.tar.bz2`"
 log_action main "DONE"
 
-cp *.tar.bz2 /app/www/
-
-APACHE_VERSION="2.2.22"
-PHP_VERSION="5.4.1"
-APACHE_BINARY_URL="http://projects.interlated.com.au/apache-${APACHE_VERSION}_php-${PHP_VERSION}.tar.bz2"
+APACHE_VERSION="2.4.2"
+PHP_VERSION="5.4.4"
+#APACHE_BINARY_URL="http://projects.interlated.com.au/apache-${APACHE_VERSION}_php-${PHP_VERSION}.tar.bz2"
+APACHE_BINARY_URL="file:///${BUILD_DIR}/apache-${APACHE_VERSION}_php-${PHP_VERSION}.tar.bz2"
 #APACHE_BINARY_URL="${OUTPUT}.tar.bz2"
 APACHE_DIR=apache
 PHP_DIR=php
