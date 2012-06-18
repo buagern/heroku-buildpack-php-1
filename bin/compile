@@ -129,10 +129,10 @@ mv "${BUILD_DIR}/${OUTPUT_DEVEL}.tar.bz2" \
 log_action main "Output files: `ls *.tar.bz2`"
 log_action main "DONE"
 
-APACHE_VERSION="2.4.2"
-PHP_VERSION="5.4.4"
-#APACHE_BINARY_URL="http://projects.interlated.com.au/apache-${APACHE_VERSION}_php-${PHP_VERSION}.tar.bz2"
-APACHE_BINARY_URL="${OUTPUT}.tar.bz2"
+APACHE_VERSION="2.2.22"
+PHP_VERSION="5.4.1"
+APACHE_BINARY_URL="http://projects.interlated.com.au/apache-${APACHE_VERSION}_php-${PHP_VERSION}.tar.bz2"
+#APACHE_BINARY_URL="${OUTPUT}.tar.bz2"
 APACHE_DIR=apache
 PHP_DIR=php
 
@@ -176,8 +176,8 @@ if [ -f www/Procfile ]; then
 fi
 
 log_action "Bundling apache $APACHE_VERSION and php $PHP_VERSION from $APACHE_BINARY_URL"
-#curl $CURL_FLAGS "$APACHE_BINARY_URL" | tar xj
-tar xj "$APACHE_BINARY_URL"
+curl $CURL_FLAGS "$APACHE_BINARY_URL" | tar xj
+#tar xj "$APACHE_BINARY_URL"
 if [ ! -d $APACHE_DIR ] || [ ! -d $PHP_DIR ]; then
   log_fail "Could not find $APACHE_DIR or $PHP_DIR - download may have failed"
   log_fail "pwd listing: `ls`"
