@@ -178,7 +178,7 @@ if [ -f www/Procfile ]; then
 fi
 
 log_action "Bundling apache $APACHE_VERSION and php $PHP_VERSION from $APACHE_BINARY_URL"
-curl $CURL_FLAGS "$APACHE_BINARY_URL" | tar xj
+#curl $CURL_FLAGS "$APACHE_BINARY_URL" | tar xj
 #tar xj "$APACHE_BINARY_URL"
 if [ ! -d $APACHE_DIR ] || [ ! -d $PHP_DIR ]; then
   log_fail "Could not find $APACHE_DIR or $PHP_DIR - download may have failed"
